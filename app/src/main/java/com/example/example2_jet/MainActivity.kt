@@ -1,5 +1,4 @@
 package com.example.example2_jet
-//↑ここエラー出ないけどちゃんと変える
 
 import android.os.Bundle
 import android.util.Log
@@ -13,6 +12,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.chaquo.python.Python
 import com.example.example2_jet.ui.theme.Example2_JetTheme
 import androidx.compose.*
 import androidx.compose.foundation.background
@@ -31,26 +31,42 @@ import androidx.compose.ui.unit.dp
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //enableEdgeToEdge()
+
+        // Pythonにより追加
+        val py = Python.getInstance()
+        val module = py.getModule("jikken")
+        val tex1 = module.callAttr("hello_world")
+        println(tex1)
         //ここもとりあえずいらない(?)
         //enableEdgeToEdge()
         setContent {
-            //とりあえずこの辺空にしてAppScreen()作った方が楽
-//            MyApplicationTheme {
+            Example2_JetTheme {
 //                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
 //                    Greeting(
-//                        name = "Android",
+//                        // Pythonにより変更
+//                        print_py = module.toString(),
 //                        modifier = Modifier.padding(innerPadding)
 //                    )
 //                }
-//            }
+            }
+            //とりあえずこの辺空にしてAppScreen()作った方が楽
             AppScreen()
         }
+
     }
 }
 
 
+// Pythonにより変更
 //メインで書くところ
 @Composable
+//fun Greeting(print_py: String, modifier: Modifier = Modifier) {
+//    Text(
+//        text = "$print_py!",
+//        modifier = modifier
+//    )
+//}
 fun AppScreen(){
     //Columnは縦置き、
     Column(
