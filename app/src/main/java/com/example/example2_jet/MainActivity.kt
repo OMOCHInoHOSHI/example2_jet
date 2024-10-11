@@ -1,4 +1,5 @@
-package com.example.myapplication
+package com.example.example2_jet
+//↑ここエラー出ないけどちゃんと変える
 
 import android.os.Bundle
 import android.util.Log
