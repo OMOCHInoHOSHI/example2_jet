@@ -31,35 +31,29 @@ import androidx.compose.ui.unit.dp
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+        //enableEdgeToEdge()
 
         // Pythonにより追加
         val py = Python.getInstance()
-        val module = py.getModule("jikken").callAttr("hello_world")
-
+        val module = py.getModule("jikken")
+        val tex1 = module.callAttr("hello_world")
+        println(tex1)
         //ここもとりあえずいらない(?)
         //enableEdgeToEdge()
         setContent {
             Example2_JetTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        // Pythonにより変更
-                        print_py = module.toString(),
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
-            //とりあえずこの辺空にしてAppScreen()作った方が楽
-//            MyApplicationTheme {
 //                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
 //                    Greeting(
-//                        name = "Android",
+//                        // Pythonにより変更
+//                        print_py = module.toString(),
 //                        modifier = Modifier.padding(innerPadding)
 //                    )
 //                }
-//            }
+            }
+            //とりあえずこの辺空にしてAppScreen()作った方が楽
             AppScreen()
         }
+
     }
 }
 
@@ -67,12 +61,12 @@ class MainActivity : ComponentActivity() {
 // Pythonにより変更
 //メインで書くところ
 @Composable
-fun Greeting(print_py: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "$print_py!",
-        modifier = modifier
-    )
-}
+//fun Greeting(print_py: String, modifier: Modifier = Modifier) {
+//    Text(
+//        text = "$print_py!",
+//        modifier = modifier
+//    )
+//}
 fun AppScreen(){
     //Columnは縦置き、
     Column(
