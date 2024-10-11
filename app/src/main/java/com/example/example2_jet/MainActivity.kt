@@ -41,7 +41,9 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
+    //こんにちは
+    var tex = "aaa"
     Example2_JetTheme {
-        Greeting("Android")
+        Greeting("Android $tex")
     }
 }
