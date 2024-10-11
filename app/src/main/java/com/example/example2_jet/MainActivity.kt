@@ -11,17 +11,24 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.chaquo.python.Python
 import com.example.example2_jet.ui.theme.Example2_JetTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
+        // Pythonにより追加
+        val py = Python.getInstance()
+        val module = py.getModule("jikken").callAttr("hello_world")
+
         setContent {
             Example2_JetTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
-                        name = "Android2024",
+                        // Pythonにより変更
+                        print_py = module.toString(),
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
@@ -30,10 +37,11 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+// Pythonにより変更
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun Greeting(print_py: String, modifier: Modifier = Modifier) {
     Text(
-        text = "Hello $name!",
+        text = "$print_py!",
         modifier = modifier
     )
 }
