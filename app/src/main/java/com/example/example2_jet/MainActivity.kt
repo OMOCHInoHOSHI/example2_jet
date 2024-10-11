@@ -69,7 +69,7 @@ fun AppScreen(){
                 shape =  RoundedCornerShape(0.dp),
                 //↓位置調整(Modifierの中身はコンマいらない)
                 modifier=Modifier
-                    .offset(x=0.dp,y=750.dp)
+                    .offset(x=0.dp,y=50.dp)
             )
             {
                 //処理
@@ -79,7 +79,7 @@ fun AppScreen(){
                 //コンマを忘れずに書く↓
                 onClick={count++},
                 //↓位置調整
-                modifier=Modifier.offset(x=0.dp,y=750.dp),
+                modifier=Modifier.offset(x=0.dp,y=50.dp),
             )
             {
                 Text(text="Button2")
@@ -88,7 +88,7 @@ fun AppScreen(){
                 //コンマを忘れずに書く↓
                 onClick={count++},
                 //↓位置調整
-                modifier=Modifier.offset(x=0.dp,y=750.dp),
+                modifier=Modifier.offset(x=0.dp,y=50.dp),
             )
             {
                 Text(text="Button3")
