@@ -68,7 +68,7 @@ android {
 // Pythonにより追加
 chaquopy{
     defaultConfig{
-        buildPython("C:/Python/Python3/python.exe")
+        // buildPython("C:/Python/Python3/python.exe")
         version = "3.12"
     }
     productFlavors{
