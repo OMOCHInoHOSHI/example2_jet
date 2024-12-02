@@ -54,6 +54,7 @@ android {
     }
     buildFeatures {
         compose = true
+        mlModelBinding = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -70,6 +71,7 @@ chaquopy{
     defaultConfig{
         // buildPython("C:/Python/Python3/python.exe")
         version = "3.12"
+
     }
     productFlavors{
         getByName("py312"){version = "3.12"}
@@ -87,6 +89,12 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    //implementation(libs.litert.support.api)
+    implementation(libs.androidx.appcompat)
+    //implementation(libs.litert)
+    implementation(libs.firebase.database.ktx)
+    implementation(libs.tensorflow.lite.metadata)
+    implementation(libs.play.services.fitness)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -94,4 +102,9 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // tensorflow-liteの依存関係を追加
+    implementation (libs.tensorflow.lite)
+    implementation (libs.tensorflow.lite.support)
+
 }
